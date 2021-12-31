@@ -2,13 +2,16 @@
 {% block order_parts_content %}
 <h2>Order Parts</h2>
 <p>Enter the work orders here:</p>
+
 <form action="{% url 'index' %}" method="post">
+  <div class="form-group">
     {% csrf_token %}
-    {{ form }}
+      {{ form }}
+  </div>
     <input type="submit" value="Submit">
 </form>
 
 <form action="{% url 'success' %}" method="get">
-    <input type="submit" value="See All Items in DB">
+    <input type="submit" value="See All Items in DB" class="btn btn-primary">
 </form>
 {% endblock %}

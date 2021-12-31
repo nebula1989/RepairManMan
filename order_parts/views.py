@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from .forms import PartOrderingForm
-from .models import OrderParts
+from .models import OrderPart
 
 
 # Create your views here.
@@ -20,6 +20,6 @@ def index(request):
 
 
 class PartsOrdersListView(ListView):
-    model = OrderParts
+    model = OrderPart
 
     template_name = 'order_parts/parts_successfully_ordered.html'
