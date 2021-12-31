@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block order_parts_content %}
+<h2>Order Parts</h2>
+<p>Enter the work orders here:</p>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
