@@ -3,7 +3,7 @@
 <h2>Order Parts</h2>
 <p>Enter the work orders here:</p>
 
-<form action="{% url 'index' %}" method="post">
+<form action="{% url 'part_order_form' %}" method="post">
   <div class="form-group">
     {% csrf_token %}
       {{ form }}
@@ -11,7 +11,7 @@
     <input type="submit" value="Submit">
 </form>
 
-<form action="{% url 'success' %}" method="get">
+<form action="{% url 'all_part_orders' %}" method="get">
     <input type="submit" value="See All Items in DB" class="btn btn-primary">
 </form>
 {% endblock %}

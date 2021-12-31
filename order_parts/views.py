@@ -5,7 +5,7 @@ from .models import OrderPart
 
 
 # Create your views here.
-def index(request):
+def part_order_form(request):
     context = {}
     
     # create form object
@@ -22,4 +22,4 @@ def index(request):
 class PartsOrdersListView(ListView):
     model = OrderPart
 
-    template_name = 'order_parts/parts_successfully_ordered.html'
+    template_name = 'order_parts/AllPartOrders.html'

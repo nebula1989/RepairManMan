@@ -4,6 +4,6 @@ from . import views
 from order_parts.views import PartsOrdersListView
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('success/', PartsOrdersListView.as_view(), name='success')
+    path('', views.part_order_form, name='part_order_form'),
+    path('AllPartOrders/', PartsOrdersListView.as_view(), name='all_part_orders')
 ]
