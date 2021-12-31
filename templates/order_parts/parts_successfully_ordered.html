@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
+{% load render_table from django_tables2 %}
 
 {% block order_parts_content %}
 <h2>Parts Ordered Successfully!</h2>
 <p>Here are the parts you ordered:</p>
 
-{% for i in id %}
-    {{ i.work_order }}
-    {{ i.part_number }}
-{% endfor %}
+<body>
+    {% render_table object_list %}
+</body>
 
 {% endblock %}

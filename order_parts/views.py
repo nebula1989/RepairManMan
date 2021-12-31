@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from .forms import PartOrderingForm
 from .models import OrderParts
 
@@ -18,11 +19,7 @@ def index(request):
     return render(request, 'order_parts/order_parts.html', context)
 
 
-def parts_successfully_ordered(request):
-    data = OrderParts.objects.all()
+class PartsOrdersListView(ListView):
+    model = OrderParts
 
-    dict_of_parts_ordered = {
-        "id" : data
-    }
-
-    return render(request, 'order_parts/parts_successfully_ordered.html', dict_of_parts_ordered)
+    template_name = 'order_parts/parts_successfully_ordered.html'
