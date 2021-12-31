@@ -3,5 +3,8 @@
 <h2>Parts Ordered Successfully!</h2>
 <p>Here are the parts you ordered:</p>
 
-
+{% for i in id %}
+    {{ i.work_order }}
+    {{ i.part_number }}
+{% endfor %}
 {% endblock %}
