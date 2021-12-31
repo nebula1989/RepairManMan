@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block order_parts_content %}
 <h2>Parts Ordered Successfully!</h2>
 <p>Here are the parts you ordered:</p>
@@ -7,4 +8,5 @@
     {{ i.work_order }}
     {{ i.part_number }}
 {% endfor %}
+
 {% endblock %}
