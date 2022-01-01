@@ -12,6 +12,12 @@
 </form>
 
 <form action="{% url 'all_part_orders' %}" method="get">
-    <input type="submit" value="See All Items in DB" class="btn btn-primary">
+    <input type="submit" value="See All Parts Ordered" class="btn btn-primary">
 </form>
+
+
+<form action="{% url 'todays_part_orders' %}" method="get">
+<button type="submit" class="button">See Today's Parts Ordered</button>
+</form>
+
 {% endblock %}
