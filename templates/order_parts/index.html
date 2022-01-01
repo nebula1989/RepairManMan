@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block order_parts_content %}
+<p>Parts Ordered</p>
+
+<body>
+{% if latest_partsordered_list %}
+<ul>
+    {% for part in latest_partsordered_list %}
+        <li><a href="/order_parts/detail/{{ part.id }}/">{{ part.id }}</a>, {{ part.work_order }}, {{ part.part_number }}, {{ part.date_ordered }}</li>
+    {% endfor %}
+    </ul>
+
+{% elif todays_partsordered_list %}
+    <ul>
+    {% for part in todays_partsordered_list %}
+        <li><a href="/order_parts/detail/{{ part.id }}/">{{ part.id }}</a>, {{ part.work_order }}, {{ part.part_number }}, {{ part.date_ordered }}</li>
+    {% endfor %}
+    </ul>
+
+{% else %}
+    <p>No parts have been ordered.</p>
+{% endif %}
+</body>
+
+{% endblock %}
+
+{% block sort_buttons %}
+<!-- Buttons to sort data -->
+<form action="{% url 'PartsOrderedIndex' %}" method="get">
+    <input type="submit" value="See All Parts Ordered" class="btn btn-primary">
+</form>
+
+<form action="{% url 'todays_part_orders' %}" method="get">
+<button type="submit" class="button">See Today's Parts Ordered</button>
+</form>
+{% endblock %}
