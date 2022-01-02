@@ -48,7 +48,7 @@ def detail(request, part_order_id):
 
 class PartsOrdersArchiveView(TodayArchiveView):
     queryset = OrderPart.objects.all()
-    context_object_name = 'todays_partsordered_list'
+    context_object_name = 'latest_partsordered_list'
     date_field = "date_ordered"
     template_name = 'order_parts/index.html'
 

@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from order_parts.views import IndexView, PartsOrdersArchiveView
 
+
 urlpatterns = [
     path('', IndexView.as_view(), name='PartsOrderedIndex'),
     path('partsForm', views.part_order_form, name='part_order_form'),
