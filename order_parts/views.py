@@ -1,11 +1,10 @@
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.views import generic
 from django.http import Http404
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.dates import TodayArchiveView
+from django.views.generic.edit import UpdateView
+
 from .forms import PartOrderingForm
 from .models import OrderPart
 
@@ -44,6 +43,13 @@ def detail(request, part_order_id):
         raise Http404("Part Order does not exist")
     return render(request, 'order_parts/detail.html',
                   {'part_order': part_order})
+
+
+class PartsOrdersUpdateView(UpdateView):
+    model = OrderPart
+    fields = '__all__'
+    template_name = 'order_parts/order_parts_update_form.html'
+    success_url = '/order_parts'
 
 
 class PartsOrdersArchiveView(TodayArchiveView):
