@@ -1,0 +1,8 @@
+<h1>Part Order ID: <a href="{% url 'update' part_order.id%}">{{ part_order.id }}</a>, Work Order: {{ part_order.work_order }}</h1>
+<h2>{{ part_order.part_number }}</h2>
+<h3>{{ part_order.part_type }}</h3>
+<h3>{{ part_order.reason_needed }}</h3>
+
+<form action="" method="get">
+    <button type="submit" class="button">See Today's Parts Ordered</button>
+</form>

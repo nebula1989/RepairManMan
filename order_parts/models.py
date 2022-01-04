@@ -10,9 +10,4 @@ class OrderPart(models.Model):
     date_ordered = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        str_output = "\nWork Order: %d \n" \
-                 "Part Number: %s \n" \
-                 "Part Type: %s\n" \
-                 "Reason Needed: %s\n" \
-                 "Date Ordered: %s" % (self.work_order, self.part_number, self.part_type, self.reason_needed, self.date_ordered)
-        return str_output
+        return self.id
