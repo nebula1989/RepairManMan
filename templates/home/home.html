@@ -1,4 +1,25 @@
 {% extends 'base.html' %}
 {% block home_content %}
-<h1>Home Template</h1>
+    <h1>Welcome to RepairManMan</h1>
+    <h2>The Tool for Service Techs</h2>
+    <img src="https://media4.giphy.com/media/l4EoYkobJRhtYnvm8/giphy.gif" style="width: 15%"><br>
+
+     <!-- Grid of Action Buttons -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+            <form action="{% url 'PartsOrderedIndex' %}" method="get">
+                <button type="submit">My Jobs</button>
+            </form>
+        </div>
+        <div class="col-sm">
+            <form action="{% url 'PartsOrderedIndex' %}" method="get">
+                <button type="submit">Order Parts</button>
+            </form>
+        </div>
+        <div class="col-sm">
+            <button>My Data</button>
+        </div>
+      </div>
+    </div>
 {% endblock %}
