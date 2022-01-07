@@ -14,6 +14,11 @@
             <ul>
                 {% for part in latest_partsordered_list %}
                  <li><a href="{% url 'detail' part.id %}">{{ part.id }}</a>: {{ part.part_type }}</li>
+                    <!-- Delete Button-->
+                    <form action="{% url 'delete' part.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
                 {% endfor %}
             </ul>
         {% else %}

@@ -1,9 +1,10 @@
 from django.http import Http404
 from django.utils import timezone
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.dates import TodayArchiveView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 
 from .forms import PartOrderingForm
 from .models import OrderPart
@@ -50,6 +51,11 @@ class PartsOrdersUpdateView(UpdateView):
     fields = '__all__'
     template_name = 'order_parts/order_parts_update_form.html'
     success_url = '/order_parts'
+
+
+class PartsOrderDeleteView(DeleteView):
+    model = OrderPart
+    success_url = reverse_lazy('PartsOrderedIndex')
 
 
 class PartsOrdersArchiveView(TodayArchiveView):
