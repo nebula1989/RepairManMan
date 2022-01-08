@@ -7,7 +7,7 @@ from django.views.generic.dates import TodayArchiveView
 from django.views.generic.edit import UpdateView, DeleteView
 
 from .forms import PartOrderingForm
-from .models import OrderPart
+from .models import PartOrder
 
 
 # Create your views here.
@@ -26,40 +26,40 @@ def part_order_form(request):
 
 
 class IndexView(ListView):
-    model = OrderPart
+    model = PartOrder
     context_object_name = 'latest_partsordered_list'
     template_name = 'order_parts/index.html'
 
     def get_queryset(self):
         """Return the last ten ordered parts."""
-        return OrderPart.objects.filter(
+        return PartOrder.objects.filter(
             date_ordered__lte=timezone.now()
         ).order_by('date_ordered')[:10]
 
 
 def detail(request, part_order_id):
     try:
-        part_order = OrderPart.objects.get(pk=part_order_id)
-    except OrderPart.DoesNotExist:
+        part_order = PartOrder.objects.get(pk=part_order_id)
+    except PartOrder.DoesNotExist:
         raise Http404("Part Order does not exist")
     return render(request, 'order_parts/detail.html',
                   {'part_order': part_order})
 
 
 class PartsOrdersUpdateView(UpdateView):
-    model = OrderPart
+    model = PartOrder
     fields = '__all__'
     template_name = 'order_parts/order_parts_update_form.html'
     success_url = '/order_parts'
 
 
 class PartsOrderDeleteView(DeleteView):
-    model = OrderPart
+    model = PartOrder
     success_url = reverse_lazy('PartsOrderedIndex')
 
 
 class PartsOrdersArchiveView(TodayArchiveView):
-    queryset = OrderPart.objects.all()
+    queryset = PartOrder.objects.all()
     context_object_name = 'latest_partsordered_list'
     date_field = "date_ordered"
     template_name = 'order_parts/index.html'

@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class OrderPart(models.Model):
+class PartOrder(models.Model):
     work_order = models.IntegerField()
     part_number = models.CharField(max_length=40, default='none')
     part_type = models.CharField(max_length=40, default='none')
