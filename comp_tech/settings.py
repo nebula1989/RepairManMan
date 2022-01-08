@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'order_parts.apps.OrderPartsConfig',
     'jobs.apps.JobsConfig',
+    'technicians.apps.TechniciansConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
