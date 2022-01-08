@@ -12,11 +12,18 @@
   </head>
   <body>
     {% block home_content %}{% endblock %}
+    {% block jobs_content %}{% endblock %}
     {% block delete_confirm_alert %}{% endblock %}
     {% block new_part_order_btn %}{% endblock %}
     {% block sort_order_parts_content %}{% endblock %}
     {% block order_parts_content %}{% endblock %}
     {% block sort_buttons %}{% endblock %}
+
+    <!-- Go Home Button -->
+    <form action="{% url 'index' %}" method="get">
+        <button type="submit">Go Home</button>
+    </form>
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

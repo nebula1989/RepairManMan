@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'crispy_forms',
     'order_parts.apps.OrderPartsConfig',
+    'jobs.apps.JobsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
