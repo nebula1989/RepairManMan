@@ -1,10 +1,11 @@
 from django.db import models
 from technicians.models import Technician
+from jobs.models import Job
 
 
 # Create your models here.
 class PartOrder(models.Model):
-    work_order = models.IntegerField()
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, default=None)
     part_number = models.CharField(max_length=40, default='none')
     part_type = models.CharField(max_length=40, default='none')
     reason_needed = models.TextField(max_length=250, default='none')
@@ -12,4 +13,4 @@ class PartOrder(models.Model):
     ordered_by = models.ForeignKey(Technician, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
-        return self.id
+        return str(self.id)

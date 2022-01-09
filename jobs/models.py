@@ -15,4 +15,4 @@ class Job(models.Model):
     assigned_technician = models.ForeignKey(Technician, models.DO_NOTHING)
 
     def __str__(self):
-        return "%d: %s" % (self.pk, self.status)
+        return str(self.id)
