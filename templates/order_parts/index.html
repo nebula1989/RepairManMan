@@ -2,20 +2,18 @@
 
 <body>
 
-    {% block new_part_order_btn %}
+    {% block content %}
         <form action="{% url 'part_order_form' %}" method="get">
             <button type="submit" class="button">Request a Part</button>
         </form>
-    {% endblock %}
 
-    {% block order_parts_content %}
         {% if latest_partsordered_list %}
             <p>List of Parts Ordered</p>
             <ul>
                 {% for part in latest_partsordered_list %}
-                 <li><a href="{% url 'detail' part.id %}">{{ part.id }}</a>: {{ part.part_type }}</li>
+                 <li><a href="{% url 'update_part' part.id %}">{{ part.id }}</a>: {{ part.part_type }}</li>
                     <!-- Delete Button-->
-                    <form action="{% url 'delete' part.id %}" method="post">
+                    <form action="{% url 'delete_part' part.id %}" method="post">
                         {% csrf_token %}
                         <input type="submit" value="Delete">
                     </form>
@@ -24,9 +22,7 @@
         {% else %}
             <p>No parts have been ordered.</p>
         {% endif %}
-    {% endblock %}
 
-    {% block sort_buttons %}
         <!-- Buttons to sort data -->
         <form action="{% url 'PartsOrderedIndex' %}" method="get">
             <input type="submit" value="See All Parts Ordered" class="btn btn-primary">
