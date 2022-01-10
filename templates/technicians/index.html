@@ -1,27 +1,26 @@
 {% extends 'base.html' %}
 
     {% block content %}
-        <form action="{% url 'part_order_form' %}" method="get">
-            <button type="submit" class="button">Request a Part</button>
+        <form action="{% url 'technician_form' %}" method="get">
+            <button type="submit" class="button">Add a Technician</button>
         </form>
         {% if latest_techs_created_list %}
             <p>List of Technicians</p>
 
             <ul>
                 {% for tech in latest_techs_created_list %}
-                 <li><a href="{% url 'detail' tech.id %}">{{ tech.id }}</a>: {{ tech.first_name }} {{ tech.last_name }}</li>
+                 <li><a href="{% url 'detail_technician' tech.id %}">{{ tech.id }}</a>: {{ tech.first_name }} {{ tech.last_name }}</li>
 
                     <!-- Delete Button-->
-                    <form action="{% url 'delete' tech.id %}" method="post">
+                    <form action="{% url 'delete_technician' tech.id %}" method="post">
                         {% csrf_token %}
                         <input type="submit" value="Delete">
                     </form>
                 {% endfor %}
             </ul>
+
         {% else %}
             <p>No Technicians have been created yet.</p>
         {% endif %}
-
-        <!-- Buttons to sort data -->
 
     {% endblock %}

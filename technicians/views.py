@@ -22,7 +22,7 @@ def technician_form(request):
         form.save()
 
     context['form'] = form
-    return render(request, 'technicians/index.html', context)
+    return render(request, 'technicians/technicians.html', context)
 
 
 class IndexView(ListView):
@@ -49,7 +49,7 @@ class TechnicianUpdateView(UpdateView):
 
 class TechnicianDeleteView(DeleteView):
     model = Technician
-    success_url = reverse_lazy('PartsOrderedIndex')
+    success_url = reverse_lazy('technicianIndexView')
 
 
 class TechnicianArchiveView(TodayArchiveView):
