@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Job ID: <a href="{% url 'job_update' job.id%}">{{ job.id }}</a></h1>
+<h2>Status: {{ job.status }}</h2>
+<p>Notes: "<i>{{ job.service_notes }}</i>"</p>
+<p>Assigned Tech:<strong>{{ job.assigned_technician }}</strong></p>
+
+{% endblock %}

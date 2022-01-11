@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
     {% block content %}
-        <form action="{% url 'part_order_form' %}" method="get">
-            <button type="submit" class="button">Add a Technician</button>
+        <form action="{% url 'job_form' %}" method="get">
+            <button type="submit" class="button">Create a New Job</button>
         </form>
-        {% if latest_techs_created_list %}
-            <p>List of Technicians</p>
+        {% if latest_jobs_created_list %}
+            <p>List of Jobs</p>
 
             <ul>
-                {% for tech in latest_techs_created_list %}
-                 <li><a href="{% url 'detail' tech.id %}">{{ tech.id }}</a>: {{ tech.first_name }} {{ tech.last_name }}</li>
+                {% for job in latest_jobs_created_list %}
+                 <li><a href="{% url 'detail_job' job.id %}">{{ job.id }}</a>: {{ job.first_name }} {{ job.last_name }}</li>
 
                     <!-- Delete Button-->
-                    <form action="{% url 'delete' tech.id %}" method="post">
+                    <form action="{% url 'delete_job' job.id %}" method="post">
                         {% csrf_token %}
                         <input type="submit" value="Delete">
                     </form>
