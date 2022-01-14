@@ -23,3 +23,5 @@ urlpatterns = [
     path('jobs/', include('jobs.urls')),
     path('technicians/', include('technicians.urls')),
 ]
+
+handler404 = 'order_parts.views.error_404_view'

@@ -1,4 +1,3 @@
-from django.http import Http404
 from django.utils import timezone
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -64,3 +63,7 @@ class PartsOrdersArchiveView(TodayArchiveView):
     date_field = "date_ordered"
     template_name = 'order_parts/index.html'
 
+
+def error_404_view(request, exception):
+    data = {"THING": "stuffs"}
+    return render(request, '404.html', data)
